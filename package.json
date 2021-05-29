@@ -1,0 +1,22 @@
+{
+  "name": "carbon-five-interview",
+  "version": "1.0.0",
+  "description": "Carbon Five Interview",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "test": "karma start --auto-watch --browsers ChromeHeadless karma.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "karma": "^6.3.2",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-mocha": "^2.0.1",
+    "mocha": "^8.4.0",
+    "nodemon": "^2.0.7"
+  }
+}
