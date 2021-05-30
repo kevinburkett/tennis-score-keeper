@@ -4,6 +4,18 @@
 
 Build an app that calculates the score for Tennis.
 
+## Run Project
+
+```Powershell
+npm run dev
+```
+
+## Test Project
+
+```Powershell
+npm run test
+```
+
 ## Project Setup
 
 ```Powershell
@@ -15,5 +27,4 @@ karma init karma.conf.js
 git init
 git add .
 git commit -m "Add Project Files"
-
 ```
