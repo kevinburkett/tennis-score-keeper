@@ -19,43 +19,38 @@ class Tennis {
 }
 
 class Team {
+    score
+    games
     #value
     constructor(teamArr) {
-        this.score = (teamArr != undefined) ? teamArr[0] : Team.name(0)
+        this.score = (teamArr != undefined) ? teamArr[0] : Team.val(0)
         this.games = (teamArr != undefined) ? teamArr[1] : 0
-        this.#value = (teamArr != undefined) ? Team.value(teamArr[0]) : 0
+        this.#value = (teamArr != undefined) ? Team.val(teamArr[0]) : 0
     }
     add (other) {
         this.#value++
         if (this.#value === 3 && other.#value === 3) {
             this.score = other.score = 'deuce'
         } else if (this.#value === 4 && other.#value === 3) {
-            this.score = 'advantage'
+            this.score = Team.val(4)
             other.score = ''
         } else if (this.#value === 4 && other.#value === 4) {
             this.score = other.score = 'deuce'
             this.#value = other.#value = 3
         } else if ((this.#value === 4 && other.#value < 3) || (this.#value === 5 && other.#value === 3)) {
             this.games++
-            this.score = Team.name(0)
+            this.score = Team.val(0)
             this.#value = 0
-            other.score = Team.name(0)
+            other.score = Team.val(0)
             other.#value = 0
         } else {
-            this.score = Team.name(this.#value)
-            other.score = Team.name(other.#value)
+            this.score = Team.val(this.#value)
+            other.score = Team.val(other.#value)
         }
     }
-    static value(name) {
-        return (name === 'love') ? 0 : 
-            (name === '15') ? 1 : 
-            (name === '30') ? 2 : 
-            (name === '40') ? 3 : 0
-    }
-    static name(value) {
-        return (value === 0) ? 'love' : 
-            (value === 1) ? '15' : 
-            (value === 2) ? '30' : 
-            (value === 3) ? '40' : ''
+    static val(key) {
+        const m = new Map([[0, 'love'], ['love', 0], [1, '15'], ['15', 1], [2, '30'], ['30', 2], [3, '40'], ['40', 3], [4, 'advantage'], ['advantage', 4]])
+        return m.get(key)
     }
 }
+
